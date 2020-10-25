@@ -10,7 +10,9 @@ let paths = {
 
 	scripts: {
 		src: [
-			baseDir + '/libs/mmenu/js/jquery.mmenu.all.min.js',
+			'node_modules/jquery/dist/jquery.min.js',
+			'node_modules/@fortawesome/fontawesome-free/js/all.js',
+			'node_modules/mmenu-js/dist/mmenu.js',
 			baseDir + '/js/app.js' // app.js. Always at the end
 		],
 		dest: baseDir + '/js',
