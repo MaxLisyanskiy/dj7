@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 	$('#my-menu').mmenu({
-		extensions: [ 'widescreen', 'theme-black', 'effect-menu-slide', 'pagedim-black', 'position-right' ],
+		extensions: [ 'theme-black', 'effect-menu-slide', 'pagedim-black', 'position-right' ],
 		navbar: {
 			title: '<img src="images/dest/logo-1.svg" alt="Салон красоты">'
 		},
