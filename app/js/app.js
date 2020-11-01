@@ -17,5 +17,25 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
+	$('.services__carousel').owlCarousel({
+		loop: true,
+		nav: true,
+		smartSpeed: 700,
+		navText: ['<i class="fas fa-angle-double-left"></i>', '<i class="fas fa-angle-double-right"></i>'],
+		dots: false,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            800: {
+                items: 2
+            },
+            1100: {
+                items: 3
+            }
+        }
+	});
+
 	
 });

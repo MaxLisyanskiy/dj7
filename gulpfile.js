@@ -13,6 +13,7 @@ let paths = {
 			'node_modules/jquery/dist/jquery.min.js',
 			'node_modules/@fortawesome/fontawesome-free/js/all.js',
 			'node_modules/mmenu-js/dist/mmenu.js',
+			'node_modules/owl.carousel/dist/owl.carousel.js',
 			baseDir + '/js/app.js' // app.js. Always at the end
 		],
 		dest: baseDir + '/js',
