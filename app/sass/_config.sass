@@ -133,6 +133,8 @@ body
 		position: relative
 		p 
 			margin-top: 40px
+			@media screen and ( max-width: 480px)
+				font-size: 14px
 	&__welcome
 		p
 			font-size: 14px
@@ -144,6 +146,8 @@ body
 			margin-bottom: -10px
 			span
 				margin: 0 10px
+				@media only screen and (max-width: 480px)
+					font-size: 9px
 				&::before, &::after
 					content: ''
 					width: 100%
@@ -156,6 +160,9 @@ body
 			text-transform: uppercase
 			font-size: 17px
 			margin-top: 25px
+			@media only screen and (max-width: 480px)
+				margin-top: 15px
+				font-size: 14px
 			.fa
 				margin-right: 10px
 				font-size: 12px
@@ -170,6 +177,13 @@ body
 		margin: 0
 		line-height: 1.6
 		border-bottom: 1px solid #fff
+		@media only screen and (max-width: 1200px)
+			font-size: 64px
+		@media only screen and (max-width: 992px)
+			font-size: 48px
+		@media only screen and (max-width: 480px)
+			font-size: 28px
+			margin-top: 5px
 		
 .header-social
 	position: absolute
@@ -209,9 +223,13 @@ body
 	padding: 12.5px 0
 	width: 100%
 	background-color: rgba(#151515, .15)
+	@media only screen and (max-width: 1200px)
+		font-size: 14px
 	&__phone
 		font-family: firasans, sans-serif
 		text-align: center
+		@media screen and ( max-width: 768px)
+			text-align: left
 	.fa
 		margin-right: 5px
 		color: #555555
