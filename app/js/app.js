@@ -37,5 +37,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 	});
 
-	
+	function carouselServices(){
+		$('.services__item').each(function() {
+			var ths = $(this),
+				thsh = ths.find('.services__content').outerHeight();
+				ths.find('.services__images').css('min-height', thsh);
+		});
+	}
+	carouselServices();
 });
