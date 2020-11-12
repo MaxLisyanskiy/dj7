@@ -45,4 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	}
 	carouselServices();
+
+	$('.services__content-title').each(function() {
+		$(this).html( $(this).html().replace(/(\S+)\s*$/,'<span>$1</span>') );
+	})
 });

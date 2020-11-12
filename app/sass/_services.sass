@@ -14,14 +14,45 @@ $colors: $blue, $red, $accent
         &:hover
             .services__images
                 opacity: 1
-    & .owl-item
+    .owl-item
         &:nth-child(2n+2)
-            .services-item
+            .services__item
                 flex-direction: column
     &__images
         background-size: cover
         background-position: center
         opacity: 0.8
         transition: opacity .5s ease
-    
+    &__content
+        display: flex
+        position: relative
+        padding: 60px 10%
+        &-logo
+            width: 100px
+            height: auto
+            display: inline-block
+        &-composition
+            margin: auto
+            text-align: center
+            width: 100%
+        &-title
+            font-weight: 800
+            font-size: 30px
+            margin-bottom: 20px
+            span
+                font-size: 18px
+                font-weight: 300
+                display: block
+        &-list
+            margin: 0
+            padding: 0
+            list-style-type: none
+            margin-bottom: 25px
+            li
+                padding: 8px
+                border-bottom: 1px solid rgba(#000, .12) 
+                &:last-child
+                    border-bottom: none     
+                strong
+                    font-family: firasans, sans-serif
 
