@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
+	$('.services__carousel').on('initialized.owl.carousel', function() {
+		setTimeout(function() {
+			carouselServices()
+		}, 1000);
+	});
+
 	$('.services__carousel').owlCarousel({
 		loop: true,
 		nav: true,
