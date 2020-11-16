@@ -1,34 +1,43 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-	$('#my-menu').mmenu({
-		extensions: [ 'theme-black', 'effect-menu-slide', 'pagedim-black', 'position-right' ],
-		navbar: {
-			title: '<img src="images/dest/logo-1.svg" alt="Салон красоты">'
-		},
-		hooks: {
-		"open:finish": () => {
-			let openPanel = document.querySelector('.hamburger');
-			openPanel.classList.add('is-active');
-		},
-		"close:finish": () => {
-			let closePanel = document.querySelector('.hamburger');
-			closePanel.classList.remove('is-active');
-		}
-		}
-	});
 
-	$('.services__carousel').on('initialized.owl.carousel', function() {
-		setTimeout(function() {
-			carouselServices()
-		}, 1000);
-	});
+    new Mmenu( "#my-menu", {
+        extensions: [
+            "theme-black",
+            "position-right",
+            "fx-menu-slide",
+            "pagedim-black",
+            "border-none",
+        ],
+        navbar: {
+            title: '<img class="mm-navbar__logo" src="images/logo-1.svg" alt="Салон красоты Смитлер">'
+        },
+        hooks: {
+            "open:finish": () => {
+                let openPanel = document.querySelector('.hamburger');
+                openPanel.classList.add('is-active');
+            },
+            "close:finish": () => {
+                let closePanel = document.querySelector('.hamburger');
+                closePanel.classList.remove('is-active');
+            }
+        }
+    });
 
-	$('.services__carousel').owlCarousel({
-		loop: true,
-		nav: true,
-		smartSpeed: 700,
-		navText: ['<i class="fas fa-angle-double-left"></i>', '<i class="fas fa-angle-double-right"></i>'],
-		dots: false,
+    $('.carousel-services').on('initialized.owl.carousel', function () {
+        setTimeout(function () {
+            carouselService();
+        }, 100);
+
+    })
+    $('.carousel-services').owlCarousel({
+        navigation: true,
+        // loop: true,
+        nav: true,
+        smartSpeed: 700,
+        navSpeed: 700,
+        navText: ['<i class="fas fa-angle-double-left"></i>', '<i class="fas fa-angle-double-right"></i>'],
+        dots: false,
         responsiveClass: true,
         responsive: {
             0: {
@@ -41,18 +50,53 @@ document.addEventListener("DOMContentLoaded", function() {
                 items: 3
             }
         }
-	});
+    });
 
-	function carouselServices(){
-		$('.services__item').each(function() {
-			var ths = $(this),
-				thsh = ths.find('.services__content').outerHeight();
-				ths.find('.services__images').css('min-height', thsh);
-		});
-	}
-	carouselServices();
+    $('.carousel-services__content').equalHeights();
 
-	$('.services__content-title').each(function() {
-		$(this).html( $(this).html().replace(/(\S+)\s*$/,'<span>$1</span>') );
-	})
+    function carouselService() {
+        $('.carousel-services__item').each( function () {
+            let height = $(this).find('.carousel-services__content').outerHeight();
+
+            let heightImage = $(this).find('.carousel-services__image').css('min-height', height);
+        });
+    }
+
+    $('.carousel-services__h3').each( function () {
+        $(this).html( $(this).html().replace(/(\S+)\s*$/, "<span>$1</span>") );
+    });
+    $('section .h2').each( function () {
+        $(this).html( $(this).html().replace(/^(\S+)/, "<span>$1</span>") );
+    });
+
+    // $('select').selectize({
+    //     create: true,
+    // });
+
+    // Resize Window
+    // function onResize() {
+    //     $('.carousel-services__content').equalHeights();
+    // }
+    // window.onresize = function () {
+    //     onResize();
+    // }
+
+    //E-mail Ajax Send
+    $("form.callback").submit(function() { //Change
+        var th = $(this);
+        $.ajax({
+            type: "POST",
+            url: "mail.php", //Change
+            data: th.serialize()
+        }).done(function() {
+            alert("Thank you!");
+            setTimeout(function() {
+                // Done Functions
+                th.trigger("reset");
+            }, 1000);
+        });
+        return false;
+    });
+
+
 });

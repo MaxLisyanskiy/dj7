@@ -10,10 +10,13 @@ let paths = {
 
 	scripts: {
 		src: [
-			'node_modules/jquery/dist/jquery.min.js',
+			'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 			'node_modules/@fortawesome/fontawesome-free/js/all.js',
 			'node_modules/mmenu-js/dist/mmenu.js',
+			'node_modules/jquery.equalheights/jquery.equalheights.js',
 			'node_modules/owl.carousel/dist/owl.carousel.js',
+			'node_modules/fotorama/fotorama.js',
+			'node_modules/selectize/dist/js/standalone/selectize.js',
 			baseDir + '/js/app.js' // app.js. Always at the end
 		],
 		dest: baseDir + '/js',
@@ -61,7 +64,7 @@ const del          = require('del');
 function browsersync() {
 	browserSync.init({
 		server: { baseDir: baseDir + '/' },
-		notify: false,
+		notify: true,
 		online: online
 	})
 }
@@ -69,7 +72,7 @@ function browsersync() {
 function scripts() {
 	return src(paths.scripts.src)
 	.pipe(concat(paths.jsOutputName))
-	.pipe(uglify())
+	// .pipe(uglify())
 	.pipe(dest(paths.scripts.dest))
 	.pipe(browserSync.stream())
 }
@@ -111,10 +114,10 @@ function deploy() {
 }
 
 function startwatch() {
-	watch(baseDir  + '/' + preprocessor + '/**/*', {usePolling: true}, styles);
-	watch(baseDir  + '/images/src/**/*.{' + imageswatch + '}', {usePolling: true}, images);
-	watch(baseDir  + '/**/*.{' + fileswatch + '}', {usePolling: true}).on('change', browserSync.reload);
-	watch([baseDir + '/js/**/*.js', '!' + paths.scripts.dest + '/*.min.js'], {usePolling: true}, scripts);
+	watch(baseDir  + '/**/' + preprocessor + '/**/*', styles);
+	watch(baseDir  + '/**/*.{' + imageswatch + '}', images);
+	watch(baseDir  + '/**/*.{' + fileswatch + '}').on('change', browserSync.reload);
+	watch([baseDir + '/**/*.js', '!' + paths.scripts.dest + '/*.min.js'], scripts);
 }
 
 exports.browsersync = browsersync;

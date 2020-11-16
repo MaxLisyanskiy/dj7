@@ -1,0 +1,51 @@
+@include media-breakpoint-down(lg)
+
+    .h1
+        font-size: 64px
+
+    .header-contacts
+        font-size: 14px
+
+    .carousel-services__item
+        flex-direction: column
+
+    .section
+        &-king, &-review, &-partners
+            padding: 8% 0
+
+    .section-call
+        background-size: cover
+        &:before
+            width: 100%
+
+    .callback
+        padding: 12% 0
+
+
+
+@include media-breakpoint-down(md)
+
+    .h1
+        font-size: 48px
+
+@include media-breakpoint-down(sm)
+
+    .header-contacts
+        &__phone
+            text-align: left
+
+@include media-breakpoint-down(xs)
+
+    .h1
+        font-size: 30px
+        margin-top: 5px
+
+    .welcome
+        &__title
+            font-size: 12px
+            white-space: normal
+        &__subtitle
+            font-size: 14px
+
+    .button
+        padding: 12px 36px
